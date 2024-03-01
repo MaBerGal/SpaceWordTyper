@@ -81,7 +81,7 @@ class GameWindow(Window):
         self.limitLine = Line(self.limitLine_x, 0, self.limitLine_x, self.height, width=4, color=(214, 93, 177, 255))
 
         # Time for shake animation when a word character is missed
-        self.shake_animation_time = 0.0
+        self.shake_time = 0.0
 
         # Initialize time for the limitLine's pulsating effect
         self.pulsate_time = 0.0
@@ -226,10 +226,10 @@ class GameWindow(Window):
                     dust_particle.x = 0
 
             # Handle shake animation when the player misses a word
-            if self.shake_animation_time > 0:
-                self.shake_animation_time -= elapsed_time
+            if self.shake_time > 0:
+                self.shake_time -= elapsed_time
                 # Apply rotation to the first character for a shaking effect
-                self.characters[0].rotation = math.sin(self.shake_animation_time * 50) * 20
+                self.characters[0].rotation = math.sin(self.shake_time * 50) * 20
             # Reset rotation if shake animation time is over
             else:
                 self.characters[0].rotation = 0
@@ -369,7 +369,7 @@ class GameWindow(Window):
                 self.particles.append(Particles(character.x, character.y))
             else:
                 # Set shake animation time to create a visual shake effect
-                self.shake_animation_time = 0.3
+                self.shake_time = 0.3
 
         # Handle the cases when chr() fails to convert the symbol to a character
         except ValueError:

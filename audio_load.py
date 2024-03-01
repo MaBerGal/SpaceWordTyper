@@ -1,4 +1,3 @@
-import pyglet
 from pyglet.media import load
 
 

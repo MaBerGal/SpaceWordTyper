@@ -1,4 +1,3 @@
-# Import necessary modules
 import pyglet
 from pyglet.media import Player
 from pyglet.shapes import Circle

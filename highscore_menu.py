@@ -1,11 +1,8 @@
-from pyglet import window
 from pyglet.media import Player
 from pyglet.shapes import Circle
 from pyglet.sprite import Sprite
 from pyglet.window import key
-
 from pyglet.text import Label
-
 
 from audio_load import AudioLoad
 from highscore_manager import HighscoreManager
