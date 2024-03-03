@@ -17,7 +17,7 @@ class AudioLoad:
     # Flag to track whether stage sounds are loaded or not
     stage_sounds_loaded = False
 
-    # Class method to load menu sounds (class methods can be called without instantiating the class)
+    # Class method to load menu sounds (note to self: class methods can be called without instantiating the class)
     @classmethod
     def load_menu_sounds(cls):
         # Check if menu sounds are not loaded yet

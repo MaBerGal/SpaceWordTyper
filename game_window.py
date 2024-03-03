@@ -18,12 +18,12 @@ from particles import Particles
 from stage_select_menu import StageSelectMenu
 
 
-# Class that handles the main game window and rendering
+# Class that handles the main game window
 class GameWindow(Window):
     def __init__(self, game, stage):
         # Call to the super constructor (window), setting the dimensions and title
-        super().__init__(width=800, height=600, caption="Typing Game")
-        # Initialize the game renderer window (instance of WordManager)
+        super().__init__(width=800, height=600, caption="Space Words")
+        # Initialize the game words (instance of WordManager)
         self.game = game
         # Initialize the main menu
         self.main_menu = MainMenu(self)
@@ -89,14 +89,14 @@ class GameWindow(Window):
         # Background dust
         self.dust = None
 
-    # Method to update the current stage, both in this class and the game (WordManager instance)
+    # Method to update the current stage, both in this class and the word manager
     def update_stage(self, stage):
         self.stage = stage
         self.game.update_stage(stage)
         # Call the initialize_dust method to set up the dust array
         self.initialize_dust()
 
-    # Draw the contents of the window
+    # Draw the contents of the window (menu, game, paused game or game over)
     def on_draw(self):
         # Clear the window
         self.clear()
@@ -134,6 +134,7 @@ class GameWindow(Window):
         else:
             pass
 
+    # Method that draws the different methods of the game on screen
     def draw_game(self):
         # Load the background if not yet loaded
         if not self.background_loaded:
@@ -161,7 +162,6 @@ class GameWindow(Window):
         # Draw the player's remaining health
         for health_sprite in self.health_images:
             health_sprite.draw()
-
 
         pause_label = Label("Esc → Pause", font_size=14, x=self.width - 10, y=self.height - 15,
                             anchor_x="right",
@@ -346,7 +346,7 @@ class GameWindow(Window):
     def handle_game_key_press(self, symbol, modifiers):
         try:
             # (DEBUGGING) Print the uppercase character corresponding to the pressed key
-            print(f"Game key pressed: {chr(symbol).upper()}")
+            # print(f"Da key: {chr(symbol).upper()}")
 
             # Get the uppercase character corresponding to the pressed key
             key_char = chr(symbol).upper()
@@ -369,7 +369,7 @@ class GameWindow(Window):
                 self.particles.append(Particles(character.x, character.y))
             else:
                 # Set shake animation time to create a visual shake effect
-                self.shake_time = 0.3
+                self.shake_time = 0.1
 
         # Handle the cases when chr() fails to convert the symbol to a character
         except ValueError:

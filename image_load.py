@@ -12,6 +12,7 @@ class ImageLoad:
     loaded = False
 
     # Class method to load the images in case they're not loaded already
+    # (note to self: class methods can be called without instantiating the class)
     @classmethod
     def load_images(cls):
         if not cls.loaded:
