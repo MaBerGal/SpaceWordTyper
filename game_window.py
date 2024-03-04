@@ -500,5 +500,3 @@ class GameWindow(Window):
                     color=next(self.color_generator(self.stage))
                 )
             self.dust.append(dust)
-
-

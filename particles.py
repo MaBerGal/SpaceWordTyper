@@ -52,7 +52,7 @@ class Particles:
             particle.x += direction_x * elapsed_time * 10
 
             # Check if the particle is out of bounds
-            if self.check_bounds(particle):
+            if self.border_collision_check(particle):
                 particles_to_remove.append(i)
 
         # Remove particles that are out of bounds
@@ -63,7 +63,7 @@ class Particles:
             del self.speeds[index]
 
     # Method to check if a particle is out of the visible bounds of the window
-    def check_bounds(self, particle):
+    def border_collision_check(self, particle):
         return particle.y < -10 or particle.x < -10 or particle.x > 810
 
     # Generator function for generating a random RGBA color

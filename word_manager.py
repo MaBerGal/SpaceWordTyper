@@ -26,8 +26,12 @@ class WordManager:
                 "COSMICRAYS", "ANTIMATTER", "GRAVITYWELL", "PHOTONICALLY", "EXTRAGALACTIC", "EINSTEINIAN", "NEUTRINOS",
                 "THERMONUCLEAR", "PYROPHOSPHORIC", "STELLARFORMATION"]
         }
+
         # Initialize with an empty word
         self.word = ""
+
+        # Speed for the words' traversal across the screen
+        self.word_speed = ""
 
     # Method for updating the stage for the WordManager
     def update_stage(self, stage):
